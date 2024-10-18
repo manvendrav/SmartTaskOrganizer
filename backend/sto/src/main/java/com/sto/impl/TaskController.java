@@ -14,15 +14,19 @@ public class TaskController {
     @Autowired
     private TaskRepository taskRepository;
 
+    @Autowired
+    private TaskService taskService;
+
     @PostMapping("/createTask")
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         Task createdTask = taskRepository.save(task);
         return ResponseEntity.ok(createdTask);
     }
 
-    @GetMapping("/tasks")
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
+    @GetMapping("/getTasks")
+    public ResponseEntity<List<TaskDTO>> getAllTasks() {
+        List<TaskDTO> tasks = taskService.getAllTasks();
+        return ResponseEntity.ok(tasks);
     }
 
 }

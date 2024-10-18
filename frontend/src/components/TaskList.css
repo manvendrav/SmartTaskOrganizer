@@ -1,0 +1,23 @@
+/* TaskList.css */
+.task-list {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+}
+
+.task-list h2 {
+  text-align: center;
+}
+
+.task-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
