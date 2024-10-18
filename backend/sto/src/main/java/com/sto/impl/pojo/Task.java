@@ -1,4 +1,4 @@
-package com.sto.impl;
+package com.sto.impl.pojo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
