@@ -12,7 +12,7 @@ const TaskForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newTask = {
-      name: taskName,
+      taskName: taskName,
       description,
       dueDate,
     };
