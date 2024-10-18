@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './TaskList.css';
+import TaskItem from './TaskItem';
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -8,7 +8,6 @@ const TaskList = () => {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Fetch tasks from the backend API
     const fetchTasks = async () => {
       try {
         const response = await axios.get('http://localhost:8080/api/getTasks');
@@ -23,6 +22,23 @@ const TaskList = () => {
 
     fetchTasks();
   }, []);
+
+  const handleDelete = async (id) => {
+    if (id) { // Ensure id is not null
+      try {
+        await axios.delete(`http://localhost:8080/api/deleteTask/${id}`);
+        setTasks(tasks.filter((task) => task.id !== id)); // Update local state
+      } catch (error) {
+        console.error('Error deleting task:', error);
+      }
+    } else {
+      console.error('Task ID is null');
+    }
+  };
+
+  const handleUpdate = (updatedTask) => {
+    setTasks(tasks.map((task) => (task.id === updatedTask.id ? updatedTask : task)));
+  };
 
   if (loading) {
     return <div>Loading tasks...</div>;
@@ -40,11 +56,7 @@ const TaskList = () => {
       ) : (
         <ul>
           {tasks.map((task) => (
-            <li key={task.name}>
-              <h3>{task.name}</h3>
-              <p>{task.description}</p>
-              <p>Due Date: {task.dueDate}</p>
-            </li>
+            <TaskItem key={task.id} task={task} onDelete={handleDelete} onUpdate={handleUpdate} />
           ))}
         </ul>
       )}

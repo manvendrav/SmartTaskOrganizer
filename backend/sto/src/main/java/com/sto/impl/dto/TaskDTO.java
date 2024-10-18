@@ -1,9 +1,10 @@
-package com.sto.impl;
+package com.sto.impl.dto;
 
 public class TaskDTO {
     private String name;
     private String description;
     private String dueDate;
+    private Long id;
 
     public String getName() {
         return name;
@@ -30,5 +31,13 @@ public class TaskDTO {
     public TaskDTO setDueDate(String dueDate) {
         this.dueDate = dueDate;
         return this;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
