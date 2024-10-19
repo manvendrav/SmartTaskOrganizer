@@ -27,6 +27,17 @@ pipeline {
             }
         }
 
+        stage('Build Backend') {
+            steps {
+                dir(BACKEND_DIR) {
+                    // Build the Spring Boot application
+                    sh '''
+                        ./mvnw clean package  // Make sure the Maven wrapper is executable
+                    '''
+                }
+            }
+        }
+
         // ... rest of your stages ...
     }
 
