@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define environment variables like JAVA_HOME or Node.js path
         NODE_HOME = '/usr/local/node'
-        JAVA_HOME = '/usr/lib/jvm/java-11-openjdk'
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk'
         BACKEND_DIR = 'backend'
         FRONTEND_DIR = 'frontend'
     }
@@ -80,7 +80,7 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        /*stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
                 // You can use different deploy strategies here depending on your infrastructure
@@ -97,7 +97,7 @@ pipeline {
                     ]
                 )
             }
-        }
+        }*/
     }
 
     post {
