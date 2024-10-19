@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Define environment variables like JAVA_HOME or Node.js path
         NODE_HOME = '/usr/local/node'
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk'
+        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
         BACKEND_DIR = 'backend'
         FRONTEND_DIR = 'frontend'
     }
