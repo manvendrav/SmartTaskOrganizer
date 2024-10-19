@@ -1,9 +1,6 @@
 pipeline {
     agent any 
-    tools {
-        // Specify JDK for the backend (if needed)
-        // jdk 'JDK11' 
-    }
+    
     stages {
         stage('Checkout') {
             steps {
